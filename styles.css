@@ -385,17 +385,95 @@ footer::before {
 
 /* Main Content Layout */
 .main-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
     gap: 2rem;
     margin-bottom: 2rem;
 }
 
+.left-column,
+.right-column {
+    flex: 1;
+}
+
+/* Work Experience */
+.work-experience {
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.work-experience .company,
+.work-experience .opensource {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.work-experience .opensource {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Education Section */
+.education {
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+}
+
+.education ul {
+    list-style: none;
+    margin-top: 0.5rem;
+}
+
+.education li {
+    padding: 0.3rem 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.education li:last-child {
+    border-bottom: none;
+}
+
+/* Reviews Section */
+.reviews {
+    margin-top: 2rem;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.review-card {
+    border: 1px solid var(--border-color);
+    padding: 1rem;
+}
+
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .container {
+        max-width: 95%;
+        margin: 1rem auto;
+    }
+}
+
+@media (max-width: 992px) {
+    .main-grid {
+        flex-direction: column;
+    }
+    
+    .reviews-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         margin: 0;
         padding: 1rem;
+        border-radius: 0;
     }
 
     .content-wrapper {
@@ -416,9 +494,193 @@ footer::before {
         grid-template-columns: 1fr;
     }
 
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    section h2 {
+        font-size: 1.2rem;
+    }
+
+    .education ul {
+        columns: 1;
+    }
+
+    nav ul {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    nav ul li:not(:last-child):after {
+        content: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 1rem 0.8rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .hero p {
+        font-size: 0.9rem;
+    }
+
+    section {
+        margin-bottom: 2rem;
+    }
+
+    .projects li {
+        padding: 0.6rem 0.8rem;
+    }
+
+    .review-card {
+        padding: 1rem;
+    }
+
+    .work-experience h3,
+    .education h3 {
+        font-size: 1rem;
+    }
+
+    .work-experience p,
+    .education p,
+    .review-card p {
+        font-size: 0.9rem;
+    }
+
+    .profile-link,
+    .github-link {
+        font-size: 0.85rem;
+    }
+
+    .reviewer .name {
+        font-size: 0.85rem;
+    }
+
+    .reviewer .title {
+        font-size: 0.75rem;
+    }
+
+    footer {
+        margin-top: 2rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* Print styles for better PDF generation */
+@media print {
+    body {
+        background: none;
+    }
+
+    .container {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        max-width: 100%;
+    }
+
+    .review-card,
+    .projects li {
+        break-inside: avoid;
+    }
+
+    .content-wrapper {
+        display: block;
+    }
+
+    .sidebar {
+        border: none;
+        padding: 0;
+        margin-bottom: 2rem;
+    }
+
     .main-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+        display: block;
+    }
+
+    section {
+        page-break-inside: avoid;
+    }
+
+    a {
+        text-decoration: none !important;
+        color: var(--text-color) !important;
+    }
+
+    footer {
+        margin-top: 2rem;
+        border-top: 1px solid var(--border-color);
+    }
+
+    /* Hide decorative elements in print */
+    .sidebar::after,
+    section h2::after,
+    nav a::after,
+    footer::before {
+        display: none;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) {
+    .projects li::before {
+        opacity: 1;
+        left: 5px;
+    }
+
+    .projects li {
+        padding-left: 1.5rem;
+    }
+
+    .review-card:hover {
+        transform: none;
+    }
+
+    nav a:hover::after {
+        width: 0;
+    }
+}
+
+/* Ensure animations don't run on devices that prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .review-card:hover,
+    .projects li:hover,
+    .education li:hover {
+        transform: none !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --primary-color: #000000;
+        --secondary-color: #000000;
+        --accent-color: #000000;
+        --text-color: #000000;
+        --border-color: #000000;
+    }
+
+    * {
+        border-color: #000 !important;
+    }
+
+    .review-card,
+    .projects li {
+        border: 2px solid #000;
     }
 }
 
