@@ -1,5 +1,7 @@
 # CV
 
+Project URL: [https://github.com/yourusername/cv-website](https://github.com/yourusername/cv-website)
+
 2. Add corresponding styles in `styles.css`
 
 ## 🌐 Browser Support
