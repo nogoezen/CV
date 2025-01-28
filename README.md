@@ -1,8 +1,3 @@
-# CV
-
-Project URL: [https://github.com/yourusername/cv-website](https://github.com/yourusername/cv-website)
-
-2. Add corresponding styles in `styles.css`
 
 ## 🌐 Browser Support
 
@@ -36,6 +31,13 @@ Built with a mobile-first methodology, ensuring:
 - Responsive images
 - Adaptive layout
 
+## 🌟 Bonus Features
+
+As suggested by [roadmap.sh](https://roadmap.sh/projects/portfolio-website), the project includes:
+- Google Fonts integration for enhanced typography
+- Dark mode support using CSS variables
+- Free hosting setup ready for GitHub Pages or Cloudflare Pages
+
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -50,8 +52,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## 👏 Acknowledgments
 
+- Project structure inspired by [roadmap.sh Portfolio Project](https://roadmap.sh/projects/portfolio-website)
 - Design inspired by modern CV layouts
-- Icons from [source-of-icons]
 - Fonts from Google Fonts
 
 ## 📧 Contact
